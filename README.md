@@ -113,7 +113,7 @@ In order to do this send in `null` as parameter, along with your Activity-instan
 [See the Google Play docs for more info on static responses](http://developer.android.com/google/play/billing/billing_testing.html#billing-testing-static).
 
 ## Testing with your own In-app products
-Testing with static responses is limited, because you are only able to test the `purchase` function. Therefore, testing with real In-app products is recommended. But before that is possible, you need to do the following: 
+Testing with static responses is limited, because you are only able to test the `purchase` function. Therefore, testing with real In-app products is recommended. But before that is possible, you need to do the following:
 * I will assume you've already created your Google Play Developer account and an application there.
 * Now you need to create an In-app product under your application at the Google Play Developer Console and activate it (press the button at the top right).
 * Assuming you have installed this module (InApp Billing), you can write the JS code as explained in the Javascript API section. I suggest you to use `getProductDetails` function to see if it's the product is retrieved.
@@ -123,7 +123,7 @@ Testing with static responses is limited, because you are only able to test the 
 * The final part is, you'll need to add testers for the channel you've published to. The web page will give you a signup URL (opt-in) after you've approved open testing. Visit this URL in the browser of your **testing device** (it must be a physical device, not a emulator) and signup, and download the app where it redirected.
 * Try to buy something with the device. The purchase will eventually be cancelled, but you can also do this manually through your Google Merchant wallet.
 
-**Important**: You can only test on a physical Android device, not from an emulator. 
+**Important**: You can only test on a physical Android device, not from an emulator.
 
 
 ## Javascript API
@@ -164,7 +164,7 @@ InAppBilling.open()
   * **receiptSignature:** String
   * **receiptData:** String
   * **developerPayload:** String
-  
+
 ```javascript
 InAppBilling.purchase('android.test.purchased')
 .then((details) => {
@@ -198,7 +198,7 @@ InAppBilling.consumePurchase('your.inapp.productid').then(...);
   * **receiptSignature:** String
   * **receiptData:** String
   * **developerPayload:** String
-   
+
 ```javascript
 InAppBilling.subscribe('your.inapp.productid')
 .then((details) => {
@@ -345,3 +345,7 @@ InAppBilling.getSubscriptionTransactionDetails('your.inapp.productid')
   console.log(details)
 });
 ```
+
+> Credit where credit is due:
+>
+> The underpinnings of the iOS implementation largely borrows from the fantastic [react-native-in-app-utils](https://github.com/chirag04/react-native-in-app-utils) library.

@@ -41,24 +41,25 @@ RCT_EXPORT_METHOD(listProducts:(NSArray *)productIds
 }
 
 RCT_EXPORT_METHOD(purchase:(NSString *)productId
-                  metadata:(NSDictionary *) metadata
+                  user:(NSString *) user
                   callback:(RCTResponseSenderBlock) callback)
 {
-    //    [[RMStore defaultStore] addPayment:productId
-    //                                  user:user
-    //                               success:^(SKPaymentTransaction *transaction) {
-    //                                   NSLog(@"Payment went through!");
-    //
-    //                               }
-    //                               failure:^(SKPaymentTransaction *transaction, NSError *error) {
-    //                                   NSDictionary *err = @{
-    //                                                         @"error": @"paymentError",
-    //                                                         @"msg": [error localizedDescription]
-    //                                                         };
-    //
-    //                                   NSLog(@"There was an error and I'm not sure why? (%@)", err);
-    //                                   callback(@[err]);
-    //                               }];
+    [[RMStore defaultStore] addPayment:productId
+                                  user:user
+                               success:^(SKPaymentTransaction *transaction) {
+                                   NSLog(@"Payment went through!");
+                                   NSDictionary *transactionProps = [self transactionToJson:transaction];
+                                   
+                               }
+                               failure:^(SKPaymentTransaction *transaction, NSError *error) {
+                                   NSDictionary *err = @{
+                                                         @"error": @"paymentError",
+                                                         @"msg": [error localizedDescription]
+                                                         };
+                                   
+                                   NSLog(@"There was an error and I'm not sure why? (%@)", err);
+                                   callback(@[err]);
+                               }];
 }
 
 /**
@@ -161,6 +162,54 @@ RCT_EXPORT_METHOD(purchase:(NSString *)productId
     formatter.locale = product.priceLocale;
     
     return [formatter stringFromNumber:product.price];
+}
+
+- (NSDictionary *) transactionToJson:(SKPaymentTransaction *) transaction
+{
+    NSString *transactionState;
+    NSDictionary *props = @{
+                            @"id": transaction.transactionIdentifier,
+                            @"date": transaction.transactionDate,
+                            @"state": [self transactionStateString:transaction]
+                            };
+    
+    if (transaction.error != nil) {
+        [props setValue:[self transactionErrorString:transaction] forKey:@"error"];
+    }
+    
+    return props;
+}
+
+- (NSString *) transactionErrorString:(SKPaymentTransaction *)transaction
+{
+    NSString *errStr = @"";
+    
+    if (transaction.error) {
+        errStr = [transaction.error localizedDescription];
+    }
+    return errStr;
+}
+
+- (NSString *) transactionStateString:(SKPaymentTransaction *) transaction
+{
+    NSString *transactionState;
+    switch (transaction.transactionState) {
+        case SKPaymentTransactionStatePurchased:
+            transactionState = @"purchased";
+            break;
+        case SKPaymentTransactionStateDeferred:
+            transactionState = @"deferred";
+        case SKPaymentTransactionStatePurchasing:
+            transactionState = @"purchasing";
+        case SKPaymentTransactionStateFailed:
+            transactionState = @"failed";
+        case SKPaymentTransactionStateRestored:
+            transactionState = @"restored";
+        default:
+            transactionState = @"unknown";
+            break;
+    }
+    return transactionState;
 }
 
 - (NSDictionary *) productToJson:(SKProduct *)product

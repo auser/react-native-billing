@@ -1,41 +1,14 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - CargoBay (2.1.1):
-    - AFNetworking (~> 2.2)
   - RMStore (0.7.1):
     - RMStore/Core (= 0.7.1)
   - RMStore/Core (0.7.1)
 
 DEPENDENCIES:
-  - AFNetworking
-  - CargoBay
   - RMStore
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CargoBay: bc63f545588627238456fb56c3e7db8d42dd174a
   RMStore: 64ba13a9c040e3b7572765d169f77175cd3243e5
 
-PODFILE CHECKSUM: 9c46cf0f87ab400bd6f4e805f841132d14c0a3af
+PODFILE CHECKSUM: 727fb51c115ba8e0e3319c2ffa1261138061a99b
 
 COCOAPODS: 1.0.1

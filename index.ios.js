@@ -2,7 +2,10 @@
  * @providesModule InAppBilling
  * @flow
  */
-import {NativeModules, NativeAppEventEmitter} from 'react-native';
+import {
+  AsyncStorage, NativeModules, NativeAppEventEmitter
+} from 'react-native';
+
 const InAppBillingBridge = NativeModules.InAppBillingBridge;
 
 const promisify = fn => (...args) => {

@@ -2,10 +2,7 @@
  * @providesModule InAppBilling
  * @flow
  */
-import {
-  AsyncStorage, NativeModules, NativeAppEventEmitter
-} from 'react-native';
-
+import {NativeModules, NativeAppEventEmitter} from 'react-native';
 const InAppBillingBridge = NativeModules.InAppBillingBridge;
 
 const promisify = fn => (...args) => {
@@ -31,28 +28,35 @@ export class InAppBilling {
   }
 
   static purchase(productId, developerPayload = null) {
-    return promisify('purchase')(productId, developerPayload);
+    return promisify('purchase')(productId, developerPayload)
   }
 
   static consumePurchase(productId) {
+    return InAppBillingBridge.consumePurchase(productId);
   }
 
   static subscribe(productId, developerPayload = null) {
+    return InAppBillingBridge.subscribe(productId, developerPayload);
   }
 
   static isSubscribed(productId) {
+    return InAppBillingBridge.isSubscribed(productId);
   }
 
   static isPurchased(productId) {
+    return InAppBillingBridge.isPurchased(productId);
   }
 
   static listOwnedProducts() {
+    return InAppBillingBridge.listOwnedProducts();
   }
 
   static listOwnedSubscriptions() {
+    return InAppBillingBridge.listOwnedSubscriptions();
   }
 
   static getProductDetails(productId) {
+
   }
 
   static getPurchaseTransactionDetails(productId) {

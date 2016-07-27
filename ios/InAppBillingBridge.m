@@ -166,11 +166,11 @@ RCT_EXPORT_METHOD(purchase:(NSString *)productId
 
 - (NSDictionary *) transactionToJson:(SKPaymentTransaction *) transaction
 {
-    NSString *transactionState;
+    NSString *transactionState = [self transactionStateString:transaction];
     NSDictionary *props = @{
                             @"id": transaction.transactionIdentifier,
                             @"date": transaction.transactionDate,
-                            @"state": [self transactionStateString:transaction]
+                            @"state": transactionState
                             };
     
     if (transaction.error != nil) {

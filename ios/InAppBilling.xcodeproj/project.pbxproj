@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BCED1509EE852CD086947B6 /* libPods-InAppBilling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF221A916F52FA3A6738195C /* libPods-InAppBilling.a */; };
+		3BCED1509EE852CD086947B6 /* libPods-InAppBilling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF221A916F52FA3A6738195C /* libPods-InAppBilling.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D94F97B51D386C89009CEFC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F97B41D386C89009CEFC2 /* Foundation.framework */; };
 		D94F97B71D386C98009CEFC2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F97B61D386C98009CEFC2 /* StoreKit.framework */; };
 		D94F97B91D386CA4009CEFC2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F97B81D386CA4009CEFC2 /* CoreFoundation.framework */; };
@@ -22,25 +22,11 @@
 			remoteGlobalIDString = 46782C40268BD0C08CC5A22BB3BCD19A;
 			remoteInfo = "Pods-InAppBilling";
 		};
-		D9E9A0B51D397ADF0029D4E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94F979E1D386838009CEFC2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6FAE5918612F06FCF0FD363EFBFEC83B;
-			remoteInfo = AFNetworking;
-		};
-		D9E9A0B71D397ADF0029D4E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94F979E1D386838009CEFC2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 90E3BE0756C89930EC183BB3A8B459F3;
-			remoteInfo = CargoBay;
-		};
 		D9E9A1D81D397E4E0029D4E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D94F979E1D386838009CEFC2 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 3EE39844ABB488011021B5C75D5DE2DE;
+			remoteGlobalIDString = 8D973482993C06F55600C39FBC463342;
 			remoteInfo = "Pods-InAppBilling";
 		};
 		D9EF63B71D38706E00698FB5 /* PBXContainerItemProxy */ = {
@@ -135,8 +121,6 @@
 		D94F979F1D386838009CEFC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9E9A0B61D397ADF0029D4E3 /* libAFNetworking.a */,
-				D9E9A0B81D397ADF0029D4E3 /* libCargoBay.a */,
 				D94F97A41D386838009CEFC2 /* libPods-InAppBilling.a */,
 				D9EF63B81D38706E00698FB5 /* libRMStore.a */,
 			);
@@ -209,20 +193,6 @@
 			fileType = archive.ar;
 			path = "libPods-InAppBilling.a";
 			remoteRef = D94F97A31D386838009CEFC2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D9E9A0B61D397ADF0029D4E3 /* libAFNetworking.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAFNetworking.a;
-			remoteRef = D9E9A0B51D397ADF0029D4E3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D9E9A0B81D397ADF0029D4E3 /* libCargoBay.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCargoBay.a;
-			remoteRef = D9E9A0B71D397ADF0029D4E3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D9EF63B81D38706E00698FB5 /* libRMStore.a */ = {
@@ -378,9 +348,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../react-native/Libraries/LinkingIOS/**",
-					"$(SRCROOT)/../../node_modules/react-native/React/**",
-					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../../node_modules/React/**",
+					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
 				);
 				INSTALL_PATH = "@executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -420,9 +391,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../react-native/Libraries/LinkingIOS/**",
-					"$(SRCROOT)/../../node_modules/react-native/React/**",
-					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../../node_modules/React/**",
+					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
 				);
 				INSTALL_PATH = "@executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

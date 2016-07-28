@@ -50,6 +50,7 @@ RCT_EXPORT_METHOD(purchase:(NSString *)productId
                                    NSLog(@"Payment went through!");
                                    NSDictionary *transactionProps = [self transactionToJson:transaction];
                                    
+                                   callback(@[[NSNull null], transactionProps]);
                                }
                                failure:^(SKPaymentTransaction *transaction, NSError *error) {
                                    NSDictionary *err = @{
